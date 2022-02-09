@@ -1,5 +1,5 @@
-import HomeView from '../views/home/home.view';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import SnapView from '../views/snap/snap.view';
 
 export default function SnapStackNavContainer() {
   const SnapStack = createNativeStackNavigator();
@@ -8,9 +8,9 @@ export default function SnapStackNavContainer() {
     <SnapStack.Navigator>
       <SnapStack.Screen
         name="SnapHome"
-        component={HomeView}
+        component={SnapView}
         options={{
-          title: '⬇️ Socials Snap 📲',
+          title: '📲 Socials Snap ⬇️',
         }}
       />
     </SnapStack.Navigator>

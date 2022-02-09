@@ -34,7 +34,7 @@ export default function UrlInputComponent(props: IUrlInputComponentProps) {
         style={styles.textInput}
       />
       {err && <Text style={styles.errorText}>{err}</Text>}
-      <Button title="Snap 📲" onPress={btnClickHandler} />
+      <Button title="📲 Snap" onPress={btnClickHandler} />
     </>
   );
 }
