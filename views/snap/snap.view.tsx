@@ -1,17 +1,15 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {useState} from 'react';
-import PostingUrlView from '../posting-url/posting-url.view';
+
 import UrlInputComponent from '../../components/url-input/url-input.component';
 
 export default function SnapView(props: {
   navigation: {navigate: (arg0: string) => void};
 }) {
   const [postUrl, setPostUrl] = useState<string | null>(null);
-  const [showPostingUrl, setShowPostingUrl] = useState<boolean>(false);
 
   const btnClickHandler = (inputUrl: string) => {
     setPostUrl(inputUrl || '');
-    setShowPostingUrl(!!inputUrl);
   };
 
   const renderPostUrl = () => {
@@ -30,16 +28,12 @@ export default function SnapView(props: {
       <View style={styles.container}>
         {/*<Text style={styles.textHeader}>⬇️ Socials Snap 📲</Text>*/}
         <Text>Save social's video/picture to your phone 🤩</Text>
-        <UrlInputComponent onSnapBtnClick={btnClickHandler} />
-        <PostingUrlView
-          visible={showPostingUrl}
-          setChangeShow={setShowPostingUrl}
+        <UrlInputComponent
+          onSnapBtnClick={btnClickHandler}
+          navigation={props.navigation}
         />
+
         {renderPostUrl()}
-        {/*<Button*/}
-        {/*  title="Go to Library"*/}
-        {/*  onPress={() => props.navigation.navigate('Library')}*/}
-        {/*/>*/}
       </View>
     </>
   );

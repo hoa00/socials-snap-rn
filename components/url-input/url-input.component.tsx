@@ -4,6 +4,7 @@ import {isUrl} from './url-input.service';
 
 interface IUrlInputComponentProps {
   onSnapBtnClick: (inputUrl: string) => void;
+  navigation?: any;
 }
 
 export default function UrlInputComponent(props: IUrlInputComponentProps) {
@@ -18,6 +19,11 @@ export default function UrlInputComponent(props: IUrlInputComponentProps) {
     const VALID_URL = isUrl(inputData);
     if (VALID_URL) {
       setErr(null);
+
+      props.navigation.navigate('PostingUrl', {
+        inputUrl: inputData,
+      });
+
       props.onSnapBtnClick(inputData);
       setInputData(''); // reset input after click
     } else {

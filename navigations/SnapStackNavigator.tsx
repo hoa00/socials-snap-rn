@@ -1,5 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SnapView from '../views/snap/snap.view';
+import PostingUrlView from '../views/snap/posting-url/posting-url.view';
 
 export default function SnapStackNavContainer() {
   const SnapStack = createNativeStackNavigator();
@@ -11,6 +12,13 @@ export default function SnapStackNavContainer() {
         component={SnapView}
         options={{
           title: '📲 Socials Snap ⬇️',
+        }}
+      />
+      <SnapStack.Screen
+        name="PostingUrl"
+        component={PostingUrlView}
+        options={{
+          title: 'PostingUrlView!!!',
         }}
       />
     </SnapStack.Navigator>
